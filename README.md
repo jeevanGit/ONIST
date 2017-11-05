@@ -1,4 +1,4 @@
-# ONIST
+# ONIST (CA) 2017 
 
 * The node projects are checkedin with the node_modules as well. Since the dependecies are already pulled. The projects are self sufficient
 * Persistence of the mongodb pod on restart is not taken care of. (It can be done by mapping volumes)
