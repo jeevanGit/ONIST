@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: xxx-deployment
+spec:
+  replicas: xx
+  template:
+    metadata:
+      labels:
+        app: xxx
+    spec:
+      containers:
+      - name: xxx-cont
+        image: xxx
+        ports:
+        - name: xxx-port
+          containerPort: xxx

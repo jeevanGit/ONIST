@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mongodb-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mongodb-backend
+    spec:
+      containers:
+      - name: mongodb-cont
+        image: thefenns/onist-mongodb:1.0
+        ports:
+        - name: mongodb-port
+          containerPort: 27017
+        # volumeMounts:
+        # - mountPath: /myvol
+        #   name: myvolume
+      # volumes:
+      # - name: myvolume
+      #   awsElasticBlockStore:
+      #     volumeID: vol-0fcb104d7d44a8813

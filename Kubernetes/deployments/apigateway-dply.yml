@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: apigate-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: apigate-backend
+    spec:
+      containers:
+      - name: apigate-cont
+        image: thefenns/apiservice:2.0
+        ports:
+        - name: apigate-port
+          containerPort: 2999

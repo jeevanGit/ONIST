@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: redissvr-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: redissvr-backend
+    spec:
+      containers:
+      - name: redissvr-cont
+        image: redis
+        ports:
+        - name: redissvr-port
+          containerPort: 6379

@@ -1,0 +1,16 @@
+{
+  "name": "commentservice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "CommentService.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  }
+}

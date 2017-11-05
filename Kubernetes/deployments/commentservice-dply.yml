@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: comservice-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: comservice-backend
+    spec:
+      containers:
+      - name: comservice-cont
+        image: thefenns/commentservice:1.0
+        ports:
+        - name: memservice-port
+          containerPort: 7000

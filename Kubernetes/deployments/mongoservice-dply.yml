@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mongoservice-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: mongoservice-backend
+    spec:
+      containers:
+      - name: mongoservice-cont
+        image: thefenns/onist-mongoservice:2.1
+        ports:
+        - name: mongoser-port
+          containerPort: 4000

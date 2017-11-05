@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: redisservice-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: redissrv-backend
+    spec:
+      containers:
+      - name: redissrv-cont
+        image: thefenns/onist-redisservice:1.2
+        ports:
+        - name: redissrv-port
+          containerPort: 5000
+      - name: redis-engine
+        image: redis
+        ports:
+        - name: rediseng-port
+          containerPort: 6379

@@ -1,0 +1,20 @@
+{
+  "name": "onist_app",
+  "version": "1.0.0",
+  "description": "For Interview",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "EventEmitter": "^1.0.0",
+    "axios": "^0.17.0",
+    "body-parser": "^1.18.2",
+    "events": "^1.1.1",
+    "express": "^4.16.2",
+    "q": "^1.5.1",
+    "uuid": "^3.1.0"
+  }
+}

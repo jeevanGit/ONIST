@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: memservice-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: memservice-backend
+    spec:
+      containers:
+      - name: memservice-cont
+        image: thefenns/memberservice:1.0
+        ports:
+        - name: memservice-port
+          containerPort: 6000

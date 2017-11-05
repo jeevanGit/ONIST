@@ -1,0 +1,7 @@
+Open Issues:
+
+* Persistence of the mongodb pod on restart is not taken care of. (It can be done by mapping volumes)
+* Exponential retries for the db connection is not taken into account
+* No security is build into the system.
+* Docker images are build locally, it should ideally be driven out of Jenkins or CircleCI
+* kubectl for kubernetes uploads keys to AWS from local machine. So all the deployment interaction happens from my mac

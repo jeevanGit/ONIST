@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: memservice-service
+spec:
+  ports:
+  - port: 6000
+    protocol: TCP
+  selector:
+    app: memservice-backend
+  type: NodePort
