@@ -2,6 +2,9 @@ var express = require('express');
 var http = require('http');
 var app = express();
 var axios = require('axios');
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
 
 // Request setting
 var requestOptions = {
@@ -53,33 +56,20 @@ app.all('*/members', function(incomingRequest, outgoingResponse){
  */
 app.all('*/comments', function(incomingRequest, outgoingResponse){
     
-        // Set the options -- TODO: Move this to configuration server
-        requestOptions.method = incomingRequest.method;
-        requestOptions.path = incomingRequest.path;
-        requestOptions.port = 7000;
-        requestOptions.host = 'comservice-service'
-    
-        console.log(incomingRequest.path);
-        // Delegate all the member request to MemberService
-        
-        var request = http.request(requestOptions, function(response){
-            var consolidatedData = '';
-    
-            // Encode in UTF-8
-            response.setEncoding('utf8');
-    
-            // Consolidated Data
-            response.on('data', function (data) {
-              consolidatedData += data;
+        var body = incomingRequest.body;
+
+        var url = 'http://comservice-service:7000' + incomingRequest.path;
+        if(incomingRequest.method == 'GET') {
+            axios.get(url)
+            .then(function(msresp){
+                outgoingResponse.end(JSON.stringify(msresp.data));
             });
-    
-            response.on('end', function() {
-                outgoingResponse.end(consolidatedData);
+        } else if(incomingRequest.method == 'POST') {
+            axios.post(url, incomingRequest.body )
+            .then(function(msresp){
+                outgoingResponse.end(JSON.stringify(msresp.data));
             })
-        });
-    
-        request.write(''); 
-        request.end();
+        }
 })
 
 app.delete('/orgs/:key', function(request, response){
